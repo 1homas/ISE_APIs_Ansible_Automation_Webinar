@@ -1,0 +1,22 @@
+# Dot Files
+.env
+.DS_Store
+.project
+.bash_history
+.bashrc
+.gitconfig
+.profile
+.vscode
+
+# Files
+*.pyc
+Pipfile
+Pipfile.lock
+
+# Directories
+.ansible/
+.cache/
+.config/
+.local/
+.ssh/
+.vscode-server/
