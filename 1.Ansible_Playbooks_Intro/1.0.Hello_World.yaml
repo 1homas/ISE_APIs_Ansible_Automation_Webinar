@@ -1,0 +1,10 @@
+---
+# This is a comment in YAML!
+- name: Hello World
+  hosts: localhost
+  # gather_facts: no
+  tasks:
+
+  - name: Hello World
+    ansible.builtin.debug:
+      msg: "Hello, World!"

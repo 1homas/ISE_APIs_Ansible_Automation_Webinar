@@ -1,0 +1,34 @@
+---
+- name: Get ISE Version
+  hosts: localhost
+  gather_facts: no
+  tasks:
+
+  - name: Get ISE Version
+    ansible.builtin.uri:
+      url: "https://ise.securitydemo.net/ers/config/op/systemconfig/iseversion"
+      url_username: admin
+      url_password: C1sco12345
+      headers:
+        Accept: application/json
+      validate_certs: no
+    register: response
+
+
+  - name: Show Response
+    ansible.builtin.debug: 
+      var : response
+
+
+  - name: Set Facts for ISE Version & Patch
+    ansible.builtin.set_fact: 
+      ise_version: "{{ response.json.OperationResult.resultValue[0].value }}"
+      ise_patch: "{{ response.json.OperationResult.resultValue[1].value }}"
+
+
+  - name: Show Version & Patch
+    ansible.builtin.debug: 
+      msg : 
+      - "Version: {{ ise_version }}"
+      - "Patch: {{ ise_patch }}"
+

@@ -1,0 +1,19 @@
+---
+- name: Hello World
+  hosts: localhost
+  # gather_facts: no
+  tasks:
+
+  - name: Hello World
+    ansible.builtin.debug:
+      msg: "Hello, World!"
+
+
+- name: Hello Again
+  hosts: localhost
+  # gather_facts: no
+  tasks:
+
+  - name: Hello Again
+    ansible.builtin.debug:
+      msg: "Hello, Again!"
