@@ -14,12 +14,11 @@
   # gather_facts: no
   tasks:
 
-- hosts: whatever
-  gather_facts: no
 
   - name: Show ansible_facts
     ansible.builtin.debug:
       msg: "{{ ansible_facts }}"
+
 
   - name: Show all_ipv4_addresses
     ansible.builtin.debug:
