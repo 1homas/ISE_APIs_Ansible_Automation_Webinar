@@ -1,19 +1,19 @@
 ---
-- name: Hello World
+- name: Hello World Play
   hosts: localhost
   # gather_facts: no
   tasks:
 
-  - name: Hello World
+  - name: Hello World Task
     ansible.builtin.debug:
       msg: "Hello, World!"
 
 
-- name: Hello Again
+- name: Hello Again Play
   hosts: localhost
   # gather_facts: no
   tasks:
 
-  - name: Hello Again
+  - name: Hello Again Task
     ansible.builtin.debug:
       msg: "Hello, Again!"
