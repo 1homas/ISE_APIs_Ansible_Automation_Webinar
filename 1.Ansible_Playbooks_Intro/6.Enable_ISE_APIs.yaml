@@ -1,0 +1,51 @@
+---
+- name: Enable ISE REST APIs
+  hosts: localhost
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+
+  - name: Enable ISE OpenAPIs (ISE 3.1+)
+    ansible.builtin.uri:
+      url: "https://{{ ise_hostname }}/admin/API/apiService/update"
+      method: POST
+      url_username: "{{ ise_username }}"
+      url_password: "{{ ise_password }}"
+      force_basic_auth: yes
+      body: '{ "papIsEnabled":true, "psnsIsEnabled":true }'
+      status_code: 500,200
+      body_format: json
+      validate_certs: no
+      return_content: true
+    register: response
+
+
+  - name: Show ISE OpenAPIs Enabled
+    ansible.builtin.debug: 
+      var : response.content
+
+
+  - name: Enable ISE ERS APIs
+    ansible.builtin.uri:
+      url: "https://{{ ise_hostname }}/admin/API/NetworkAccessConfig/ERS"
+      method: PUT
+      url_username: "{{ ise_username }}"
+      url_password: "{{ ise_password }}"
+      force_basic_auth: yes
+      headers:
+        Accept: application/xml
+        Content-Type: application/xml
+      body: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ersConfig>
+    <id>1</id><isCSRFCheck>false</isCSRFCheck><isPapEnabled>true</isPapEnabled><isPsnsEnabled>true</isPsnsEnabled></ersConfig>'
+      status_code: 200
+      validate_certs: no
+      return_content: true
+    register: response
+
+
+  - name: Show ISE ERS APIs Enabled
+    ansible.builtin.debug: 
+      var : response.status
+
