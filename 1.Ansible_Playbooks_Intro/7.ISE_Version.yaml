@@ -1,6 +1,8 @@
 ---
 - name: Get ISE Version
   hosts: localhost
+  vars_files:
+    - credentials.yaml
   gather_facts: no
   tasks:
 
@@ -15,7 +17,7 @@
     register: response
 
 
-  - name: Show Response
+  - name: Show Full Version Response
     ansible.builtin.debug: 
       var : response
 
