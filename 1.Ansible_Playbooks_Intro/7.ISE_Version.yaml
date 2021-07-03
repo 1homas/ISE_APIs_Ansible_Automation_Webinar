@@ -1,4 +1,10 @@
 ---
+#
+# Demonstrates the use of:
+# - credentials file for REST hostname, username, password
+# - ansible.builtin.uri module from localhost for REST API
+# - ansible.builtin.set_fact module for variables
+#
 - name: Get ISE Version
   hosts: localhost
   vars_files:
@@ -9,8 +15,8 @@
   - name: Get ISE Version
     ansible.builtin.uri:
       url: "https://{{ ise_hostname }}/ers/config/op/systemconfig/iseversion"
-      url_username: admin
-      url_password: C1sco12345
+      url_username: "{{ ise_username }}"
+      url_password: "{{ ise_password }}"
       headers:
         Accept: application/json
       validate_certs: no
@@ -28,9 +34,13 @@
       ise_patch: "{{ response.json.OperationResult.resultValue[1].value }}"
 
 
-  - name: Show Version & Patch
+  - name: Show Version
     ansible.builtin.debug: 
-      msg : 
-      - "Version: {{ ise_version }}"
-      - "Patch: {{ ise_patch }}"
+      var : ise_version
+
+
+  - name: Show Patch
+    ansible.builtin.debug: 
+      var : ise_patch
+
 

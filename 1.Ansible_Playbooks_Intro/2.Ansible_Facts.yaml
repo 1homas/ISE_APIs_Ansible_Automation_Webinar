@@ -1,15 +1,10 @@
 ---
-
-# By default, Ansible gathers facts at the beginning of each play.
-# If you do not need to gather facts (for example, if you know 
-# everything about your systems centrally), you can turn off fact 
-# gathering at the play level to improve scalability. Disabling 
-# facts may particularly improve performance in push mode with 
-# very large numbers of systems, or if you are using Ansible on 
-# experimental platforms. 
-# To disable fact gathering, use: 
-#   gather_facts: no
-
+#
+# Demonstrates :
+# - Ansible fact gathering on localhost (control node)
+# - ansible_facts variable output 
+# - dictionary object notation
+#
 - hosts: localhost
   # gather_facts: no
   tasks:

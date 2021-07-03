@@ -1,6 +1,9 @@
 ---
 #
-# Demonstrates multiple plays, credentials file, conditional output
+# Demonstrates the use of:
+# - use of a credentials file
+# - ansible.builtin.uri module from localhost
+# - multiple tasks with conditional output
 #
 - name: Enable ISE REST APIs
   hosts: localhost

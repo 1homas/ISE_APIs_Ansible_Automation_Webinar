@@ -1,4 +1,11 @@
 ---
+#
+# Demonstrates :
+# - ansible.builtin.shell module on localhost (control node)
+# - local variable registration and output
+# - dictionary and list object notation
+# - ansible.builtin.debug msg versus var output
+#
 - hosts: localhost
   # remote_user: root
   # become: yes
@@ -6,7 +13,7 @@
   tasks:
 
     - name: Run shell command `ls` in current directory
-      shell: /bin/ls
+      ansible.builtin.shell: /bin/ls
       register: files
 
     - name: Show result
@@ -23,5 +30,4 @@
 
     - name: Last file
       ansible.builtin.debug:
-        # var: files.stdout_lines[-1]
         msg: "{{ files.stdout_lines[-1] }}"

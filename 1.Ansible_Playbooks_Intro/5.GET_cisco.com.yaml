@@ -1,4 +1,10 @@
 ---
+#
+# Demonstrates the use of:
+# - ansible.builtin.uri module from localhost with a web page
+# - ansible.builtin.debug multiple msg versus single var output
+#
+
 - name: GET cisco.com
   hosts: localhost
   gather_facts: no
@@ -46,7 +52,7 @@
     ansible.builtin.debug: 
       var : page.status
       # 
-      # Pick one. Mutually exclusive with the msg option.
+      # Pick one from below. Mutually exclusive with the msg option.
       #
       # page.cache_control
       # page.cdchost

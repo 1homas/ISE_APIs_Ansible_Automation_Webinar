@@ -1,11 +1,18 @@
 ---
+#
+# Demonstrates :
+# - ansible_facts output 
+# - single and multiple debug messages in a Task
+#
 - hosts: localhost
   # gather_facts: no
   tasks:
 
+
   - name: Show IP addresses
     ansible.builtin.debug:
       msg: "{{ ansible_facts.all_ipv4_addresses }} {{ ansible_facts.all_ipv6_addresses }}"
+
 
   - name: Show IP addresses
     ansible.builtin.debug:
