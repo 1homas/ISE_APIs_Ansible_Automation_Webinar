@@ -1,4 +1,7 @@
 ---
+#
+# Demonstrates multiple plays, credentials file, conditional output
+#
 - name: Enable ISE REST APIs
   hosts: localhost
   vars_files:
@@ -15,16 +18,23 @@
       url_password: "{{ ise_password }}"
       force_basic_auth: yes
       body: '{ "papIsEnabled":true, "psnsIsEnabled":true }'
-      status_code: 500,200
+      status_code: 200,500
       body_format: json
       validate_certs: no
       return_content: true
     register: response
 
 
-  - name: Show ISE OpenAPIs Enabled
+  - name: ISE OpenAPIs Enabled Status
     ansible.builtin.debug: 
-      var : response.content
+      msg : "✅ ISE OpenAPIs Enabled"
+    when: (response.status == 200) or (response.content.find('already enabled') != -1)
+
+
+  - name: ISE OpenAPIs Disabled Status
+    ansible.builtin.debug: 
+      msg : "❌ ISE OpenAPIs Disabled"
+    when: (response.status != 200) and (response.status != 500)
 
 
   - name: Enable ISE ERS APIs
@@ -45,7 +55,14 @@
     register: response
 
 
-  - name: Show ISE ERS APIs Enabled
+  - name: ISE ERS Enabled Status
     ansible.builtin.debug: 
-      var : response.status
+      msg : "✅ ISE ERS APIs Enabled"
+    when: response.status == 200
+
+
+  - name: ISE ERS Disabled Status
+    ansible.builtin.debug: 
+      msg : "❌ ISE ERS APIs Disabled"
+    when: response.status != 200
 
