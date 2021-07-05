@@ -4,6 +4,7 @@
 # - Ansible fact gathering on localhost (control node)
 # - ansible_facts variable output 
 # - dictionary object notation
+# - compare ansible.builtin.debug var versus msg output
 #
 - hosts: localhost
   # gather_facts: no
@@ -12,9 +13,16 @@
 
   - name: Show ansible_facts
     ansible.builtin.debug:
-      msg: "{{ ansible_facts }}"
+      var: ansible_facts
+
+
+  - name: Show ansible_facts.all_ipv4_addresses
+    ansible.builtin.debug:
+      var: ansible_facts.all_ipv4_addresses
 
 
   - name: Show all_ipv4_addresses
     ansible.builtin.debug:
-      msg: "{{ ansible_facts.all_ipv4_addresses }}"
+      msg: "IP Addresses: {{ ansible_facts.all_ipv4_addresses }}"
+
+...

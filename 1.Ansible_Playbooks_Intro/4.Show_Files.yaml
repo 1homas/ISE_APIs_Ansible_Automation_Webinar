@@ -31,3 +31,5 @@
     - name: Last file
       ansible.builtin.debug:
         msg: "{{ files.stdout_lines[-1] }}"
+
+...

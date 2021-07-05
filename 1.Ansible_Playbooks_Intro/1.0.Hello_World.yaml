@@ -8,3 +8,5 @@
   - name: Hello World Task
     ansible.builtin.debug:
       msg: "Hello, World!"
+
+...

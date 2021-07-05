@@ -19,3 +19,5 @@
       msg: 
       - "{{ ansible_facts.all_ipv4_addresses }}"
       - "{{ ansible_facts.all_ipv6_addresses }}"
+
+...
