@@ -6,7 +6,7 @@
 # - ansible.builtin.set_fact module for variables
 #
 - name: Get ISE Version
-  hosts: localhost
+  hosts: ise_deployment
   vars_files:
     - credentials.yaml
   gather_facts: no
@@ -14,12 +14,13 @@
 
   - name: Get ISE Version
     ansible.builtin.uri:
-      url: "https://{{ ise_hostname }}/ers/config/op/systemconfig/iseversion"
+      url: "https://{{ inventory_hostname }}/ers/config/op/systemconfig/iseversion"
       url_username: "{{ ise_username }}"
       url_password: "{{ ise_password }}"
       headers:
         Accept: application/json
       validate_certs: no
+    delegate_to: localhost
     register: response
 
 
