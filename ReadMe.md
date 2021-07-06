@@ -2,6 +2,8 @@
 
 These examples were created for the Cisco Identity Services Engine (ISE) Webinar: **ISE 3.1 APIs, Ansible, and Automation** delivered on July 6, 2021. 
 
+![ISE APIs Ansible Automation Webinar](images/ISE_APIs_Ansible_Automation_Webinar.png)
+
 ## Cisco DevNet Sandbox
 
 If you are looking for a lab environment to try Ansible with ISE, you may use the Cisco DevNet Sandbox [ISE with Ansible Automation](https://devnetsandbox.cisco.com/RM/Diagram/Index/ad4bb2ae-bb67-4d93-9f0d-2a6a04792e2e?diagramType=Topology) for free!
