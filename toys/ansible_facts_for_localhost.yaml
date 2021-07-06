@@ -1,0 +1,11 @@
+---
+- name: Dump ansible_facts for localhost
+  hosts: localhost
+  gather_facts: yes
+  tasks:
+
+  - name: Dump ansible_facts
+    ansible.builtin.debug:
+      var: ansible_facts
+
+...

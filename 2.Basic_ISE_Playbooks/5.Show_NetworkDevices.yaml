@@ -1,0 +1,66 @@
+---
+#
+# Demonstrates:
+# - Get all network devices
+# - List all network devices by name only
+# - Get all network devices' configuration details in ISE
+# - Dump the ISE network device configurations as YAML
+#
+- name: Dump All Network Devices (YAML)
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+
+  - name: Get All Network Devices (id/name/description)
+    cisco.ise.network_device_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: devices
+
+
+  - name: List Network Devices by Name (YAML)
+    ansible.builtin.shell: 'echo "{{ devices.ise_response
+    | community.general.json_query(query) 
+    | to_nice_yaml(indent=2) }}" > /dev/tty'
+    delegate_to: localhost
+    changed_when: false
+    vars:
+      query: "[*].name"
+
+
+  - name: Get Network Device Details by ID
+    cisco.ise.network_device_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      id: "{{ item.id }}"
+    loop: "{{ devices.ise_response }}"
+    register: device_details
+
+
+  # - name: Debug output
+  #   ansible.builtin.debug:
+  #     var: device_details.results
+
+
+  - name: Remove link attribute from all resources in loop
+    ansible.builtin.set_fact:
+      resources: '{{ resources + [ item.ise_response | dict2items | rejectattr("key", "equalto", "link") | list | items2dict ] }}'
+    loop: "{{ device_details.results }}"
+    vars: 
+      resources: []
+
+
+  - name: Dump Network Device Configuration in ISE (YAML)
+    ansible.builtin.shell: "echo '{{ resources | to_nice_yaml(indent=2) }}' > /dev/tty"
+    delegate_to: localhost
+    changed_when: false
+
+
+...

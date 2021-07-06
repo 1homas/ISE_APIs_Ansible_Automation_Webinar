@@ -1,0 +1,116 @@
+---
+#
+# Network devices for field hospital
+#
+
+profile_name: Cisco
+networkdevices:
+
+  #----------------------------------------------------------------------------
+  # MR APs
+  #----------------------------------------------------------------------------
+
+  - device_name: field-mr46-1
+    description: MR46
+    ipv4: 198.18.131.65
+    network_device_groups:
+      - Device Type#All Device Types#Wireless
+    radius_secret: new_radius_secret
+
+  - device_name: field-mr46-2
+    description: MR46
+    ipv4: 198.18.131.66
+    network_device_groups:
+      - Device Type#All Device Types#Wireless
+    tacacs_secret: new_tacacs_secret
+
+  - device_name: field-mr46-3
+    description: MR46
+    ipv4: 198.18.131.67
+    network_device_groups:
+      - Device Type#All Device Types#Wireless
+    snmp_secret: new_snmp_secret
+
+  - device_name: field-mr46-4
+    description: MR46
+    ipv4: 198.18.131.68
+    network_device_groups:
+      - Device Type#All Device Types#Wireless
+
+  - device_name: field-mr46-5
+    description: MR46
+    ipv4: 198.18.131.69
+    network_device_groups:
+      - Device Type#All Device Types#Wireless
+
+
+
+  #----------------------------------------------------------------------------
+  # MS390
+  #----------------------------------------------------------------------------
+
+
+  - device_name: field-ms390-1
+    description: MS390
+    ipv4: 198.18.131.35
+    network_device_groups:
+      - Device Type#All Device Types#Switches
+
+  - device_name: field-ms390-2
+    description: MS390
+    ipv4: 198.18.131.36
+    network_device_groups:
+      - Device Type#All Device Types#Switches
+
+  - device_name: field-ms390-3
+    description: MS390
+    ipv4: 198.18.131.37
+    network_device_groups:
+      - Device Type#All Device Types#Switches
+
+  - device_name: field-ms390-4
+    description: MS390
+    ipv4: 198.18.131.38
+    network_device_groups:
+      - Device Type#All Device Types#Switches
+ 
+  - device_name: field-ms390-5
+    description: MS390
+    ipv4: 198.18.131.39
+    network_device_groups:
+      - Device Type#All Device Types#Switches
+
+
+  #----------------------------------------------------------------------------
+  # MX
+  #----------------------------------------------------------------------------
+
+  - device_name: field-mx68-1
+    description: MX68
+    ipv4: 198.18.131.10
+    network_device_groups:
+      - Device Type#All Device Types#Routers
+
+  - device_name: field-mx68-2
+    description: MX68
+    ipv4: 198.18.131.11
+    network_device_groups:
+      - Device Type#All Device Types#Routers 
+
+  - device_name: field-mx68-3
+    description: MX68
+    ipv4: 198.18.131.12
+    network_device_groups:
+      - Device Type#All Device Types#Routers 
+
+  - device_name: field-mx68-4
+    description: MX68
+    ipv4: 198.18.131.13
+    network_device_groups:
+      - Device Type#All Device Types#Routers 
+
+  - device_name: field-mx68-5
+    description: MX68
+    ipv4: 198.18.131.14
+    network_device_groups:
+      - Device Type#All Device Types#Routers

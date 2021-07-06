@@ -1,0 +1,47 @@
+---
+#
+# Create Network Device Groups from local vars.
+#
+- hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  vars:
+    - networkdevicegroups:
+      - name: Department#Department
+        description: All Departments
+        othername: Department
+      - name: Department#Department#IT
+        description: IT
+        othername: Department
+      - name: Department#Department#Product
+        description: Product
+        othername: Department
+      - name: Department#Department#Services
+        description: Services
+        othername: Department
+      - name: Department#Department#Sales
+        description: Sales
+        othername: Department
+  gather_facts: no
+  tasks:
+
+
+  - name: Show device_groups
+    loop: "{{ networkdevicegroups }}"
+    ansible.builtin.debug: 
+      msg : "{{ item.name }}"
+
+
+  - name: Create device_groups 
+    loop: "{{ networkdevicegroups }}"
+    cisco.ise.network_device_group:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: "{{ item.name }}"
+      description: "{{ item.description }}"
+      othername: "{{ item.othername }}"
+
+...

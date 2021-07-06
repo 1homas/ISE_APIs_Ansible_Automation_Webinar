@@ -1,0 +1,1736 @@
+
+- hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+
+  - name: Get all network_access_policy_set_info
+    cisco.ise.network_access_policy_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all aci_bindings_info
+    cisco.ise.aci_bindings_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.aci_settings_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.active_directory_groups_by_domain_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.active_directory_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.active_directory_is_user_member_of_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.active_directory_trusted_domains_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.active_directory_user_groups_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.admin_user_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.allowed_protocols_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.anc_endpoint_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.anc_endpoint_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.anc_policy_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.anc_policy_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.authorization_profile_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.backup_last_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.byod_portal_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.certificate_profile_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.certificate_template_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.csr_export_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.csr_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.deployment_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_authentication_rules_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_authorization_exception_rules_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_authorization_global_exception_rules_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_authorization_rules_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_command_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_conditions_for_authentication_rule_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_conditions_for_authorization_rule_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_conditions_for_policy_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_conditions_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_dictionary_attributes_authentication_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_dictionary_attributes_authorization_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_dictionary_attributes_policy_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_identity_stores_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_network_conditions_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_policy_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_profiles_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_service_names_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.device_administration_time_date_conditions_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.downloadable_acl_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.egress_matrix_cell_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.egress_matrix_cell_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.endpoint_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.endpoint_get_rejected_endpoints_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.endpoint_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.endpoint_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.external_radius_server_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.filter_policy_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.guest_location_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.guest_smtp_notification_settings_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.guest_ssid_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.guest_type_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.guest_user_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.guest_user_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.hotspot_portal_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.id_store_sequence_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.identity_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.internal_user_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.my_device_portal_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.native_supplicant_profile_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_authentication_rules_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_authorization_exception_rules_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_authorization_global_exception_rules_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_authorization_rules_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_conditions_for_authentication_rule_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_conditions_for_authorization_rule_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_conditions_for_policy_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_conditions_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_dictionary_attribute_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_dictionary_attributes_authentication_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_dictionary_attributes_authorization_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_dictionary_attributes_policy_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_dictionary_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_identity_stores_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_network_condition_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_policy_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_profiles_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_security_groups_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_service_name_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_access_time_date_conditions_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_device_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_device_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.network_device_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.node_deployment_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.node_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.node_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.node_replication_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.pan_ha_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.portal_global_setting_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.portal_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.portal_theme_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.profiler_profile_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.px_grid_node_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.radius_server_sequence_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.repository_files_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.repository_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.rest_id_store_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.self_registered_portal_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.service_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.session_service_node_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_acl_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_acl_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_mapping_deploy_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_mapping_group_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_mapping_group_deploy_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_mapping_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_mapping_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_to_vn_to_vlan_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sg_to_vn_to_vlan_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sgt_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sgt_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sms_provider_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sponsor_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sponsor_group_member_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sponsor_portal_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sponsored_guest_portal_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.support_bundle_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sxp_connections_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sxp_connections_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sxp_local_bindings_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sxp_local_bindings_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sxp_vpns_bulk_monitor_status_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.sxp_vpns_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.system_certificate_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.system_config_version_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.tacacs_command_sets_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.tacacs_external_servers_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.tacacs_profile_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.tacacs_server_sequence_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.telemetry_info_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.trusted_certificate_export_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Get all 
+    cisco.ise.trusted_certificate_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+

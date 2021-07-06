@@ -1,0 +1,47 @@
+---
+#
+# Network Device Groups by Department
+#
+networkdevicegroups:
+
+  - name: Department#Department
+    description: All Department
+    othername: Department
+
+  - name: Department#Department#Finance
+    description: Finance
+    othername: Department
+
+  - name: Department#Department#HR
+    description: HR
+    othername: Department
+
+  - name: Department#Department#IT
+    description: IT
+    othername: Department
+
+  - name: Department#Department#Management
+    description: Management
+    othername: Department
+
+  - name: Department#Department#Marketing
+    description: Marketing
+    othername: Department
+
+  - name: Department#Department#Product
+    description: Product
+    othername: Department
+
+  - name: Department#Department#Services
+    description: Services
+    othername: Department
+
+  - name: Department#Department#Sales
+    description: Sales
+    othername: Department
+
+  - name: Department#Department#Vendors
+    description: Vendors
+    othername: Department
+
+...

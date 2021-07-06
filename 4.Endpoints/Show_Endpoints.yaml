@@ -1,0 +1,61 @@
+---
+#
+# ISE Endpoint
+#
+- name: Show Endpoint(s) Play
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+  - name: Get All Endpoints
+    cisco.ise.endpoint_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: results
+
+
+  - name: Get Endpoints by Name
+    cisco.ise.endpoint_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      name: "{{ item.name }}"
+    loop: "{{ results.ise_response }}"
+    register: details
+
+
+  # - name: Debug details
+  #   ansible.builtin.debug:
+  #     var: details
+
+
+  - name: Remove link attribute from all resources in loop
+    ansible.builtin.set_fact:
+      resources: '{{ resources + [ item.ise_response | dict2items | rejectattr("key", "equalto", "link") | list | items2dict ] }}'
+    loop: "{{ details.results }}"
+    vars: 
+      resources: []
+
+
+  - name: Dump Endpoints (YAML)
+    ansible.builtin.shell: "echo '{{ resources | to_nice_yaml(indent=2) }}' > /dev/tty"
+    delegate_to: localhost
+    changed_when: false
+
+
+  - name: Summary of Endpoints by Name (YAML)
+    ansible.builtin.shell: "echo '{{ resources
+    | community.general.json_query(query) 
+    | to_nice_yaml(indent=2) }}' > /dev/tty"
+    delegate_to: localhost
+    changed_when: false
+    vars:
+      query: "[*].name"
+
+
+...

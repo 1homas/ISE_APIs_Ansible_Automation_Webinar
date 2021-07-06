@@ -1,0 +1,88 @@
+---
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Be careful - this will delete all of your endpoints!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+- name: Delete ALL Endpoints
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  # vars_prompt:
+  #   - name: delete_confirmation
+  #     prompt: 🛑 You want to DELETE ALL Endpoints [yes/no]?
+  #     private: no
+  #     # confirm: yes
+  gather_facts: no
+  tasks:
+
+
+  - name: Get all Endpoints
+    cisco.ise.endpoint_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: response
+
+
+  - name: Get All Endpoints by ID
+    cisco.ise.endpoint_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      id: "{{ item.id }}"
+    loop: "{{ response.ise_response }}"
+    register: endpoint_details
+
+
+  # - name: debug
+  #   ansible.builtin.debug: var=endpoint_details
+
+
+  # - name: Remove link attribute from all resources in loop
+  #   ansible.builtin.set_fact:
+  #     resources: '{{ resources + [ item.ise_response | dict2items | rejectattr("key", "equalto", "link") | list | items2dict ] }}'
+  #   loop: "{{ endpoint_details.results }}"
+  #   vars: 
+  #     resources: []
+
+
+  # - name: debug
+  #   ansible.builtin.debug: var=resources
+
+
+  - name: Find Expired Endpoints
+    ansible.builtin.set_fact:
+      expired: "{{ expired + item.ise_response }}"
+    loop: "{{ endpoint_details.results }}"
+    vars: 
+      - expired: []
+    # when: item.ise_response.customAttributes.customAttributes.Expired > now()
+
+
+  - name: debug
+    ansible.builtin.debug: var=expired
+
+    # ansible.builtin.shell: 'echo "{{ endpoint_details.results
+    # | community.general.json_query(query) 
+    # | to_nice_yaml(indent=2) }}" > /dev/tty'
+    # delegate_to: localhost
+    # changed_when: false
+    # vars:
+    #   query: "[*].ise_response.customAttributes.customAttributes.Expired"
+
+
+  # - name: Delete Expired Endpoints
+  #   cisco.ise.endpoint:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #     state: absent
+  #     id: "{{ item.id }}"
+  #   loop: "{{ response.ise_response }}"
+  #   when: delete_confirmation.lower() in ['confirm','si','t','true','y','yes']
+
+
+...

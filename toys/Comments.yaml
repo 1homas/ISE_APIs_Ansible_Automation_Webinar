@@ -1,0 +1,27 @@
+---
+#
+# Demonstrates the use of the comment filter.
+# See https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#sts=Adding%20comments%20to%20files%C2%B6
+#
+- name: Test Comments
+  hosts: localhost
+  gather_facts: no
+  vars:
+    folded_comment: >
+      
+      This is a folded comment block
+      
+    literal_comment: |
+      
+      This is a literal comment block
+      
+  tasks:
+
+  - name: Comment
+    ansible.builtin.shell: "echo '{{ item | comment }}' > /dev/tty"
+    delegate_to: localhost
+    changed_when: false
+    loop: "{{ vars | list }}"
+
+
+...

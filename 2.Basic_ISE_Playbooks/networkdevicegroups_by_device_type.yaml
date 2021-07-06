@@ -1,0 +1,234 @@
+---
+#
+# Network Device Groups by Device Type
+#
+networkdevicegroups:
+
+  - name: Device Type#All Device Types
+    description: All Device Types - Root
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless
+    description: Wireless
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches
+    description: Switches
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Routers
+    description: Routers
+    othername: Device Type
+
+  - name: Device Type#All Device Types#VPN
+    description: VPN
+    othername: Device Type
+
+
+  #----------------------------------------------------------------------------
+  # Wireless
+  #----------------------------------------------------------------------------
+
+  - name: Device Type#All Device Types#Wireless
+    description: Wireless
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#2504
+    description: Cisco 2504 WLC
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#5508
+    description: Cisco 5508 WLC
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#3504
+    description: Cisco 3504 WLC
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#5520
+    description: Cisco 5520 WLC
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#8540
+    description: Cisco 8540 WLC
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR
+    description: Meraki MR
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR20
+    description: Meraki MR20
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR30H
+    description: Meraki MR30H
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR33
+    description: Meraki MR33
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR36
+    description: Meraki MR36
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR42
+    description: Meraki MR42
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR42E
+    description: Meraki MR42E
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR45
+    description: Meraki MR45
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR46
+    description: Meraki MR46
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR46E
+    description: Meraki MR46E
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR52
+    description: Meraki MR52
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR53E
+    description: Meraki MR53E
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR55
+    description: Meraki MR55
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR56
+    description: Meraki MR56
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR70
+    description: Meraki MR70
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR74
+    description: Meraki MR74
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR76
+    description: Meraki MR76
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR84
+    description: Meraki MR84
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless#MR#MR86
+    description: Meraki MR86
+    othername: Device Type
+
+
+  #----------------------------------------------------------------------------
+  # Switches
+  #----------------------------------------------------------------------------
+  - name: Device Type#All Device Types#Switches
+    description: Switches
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#3560X
+    description: Cisco 3560X
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#3750
+    description: Cisco 3750
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#3750X
+    description: Cisco 3750X
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#Fabric
+    description: SDA Fabric-enabled
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#Fabric#3650
+    description: Cisco 3650
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#Fabric#3850
+    description: Cisco 3850
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#Fabric#9300
+    description: Cisco 9300
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#Fabric#9400
+    description: Cisco 9400
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#MS
+    description: Meraki MS
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches#MS#MS390
+    description: Meraki MS390
+    othername: Device Type
+
+
+  #----------------------------------------------------------------------------
+  # Routers
+  #----------------------------------------------------------------------------
+  - name: Device Type#All Device Types#Routers
+    description: Routers
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Routers#881
+    description: Cisco 881
+    othername: Device Type
+
+
+  - name: Device Type#All Device Types#Routers#1111X
+    description: Cisco 1111X
+    othername: Device Type
+
+
+  - name: Device Type#All Device Types#Routers#1921
+    description: Cisco 1921
+    othername: Device Type
+
+
+
+  #----------------------------------------------------------------------------
+  # VPN
+  #----------------------------------------------------------------------------
+
+  - name: Device Type#All Device Types#VPN
+    description: VPN
+    othername: Device Type
+
+  - name: Device Type#All Device Types#VPN#ASA
+    description: Cisco ASA
+    othername: Device Type
+
+  - name: Device Type#All Device Types#VPN#5508X
+    description: Cisco 5508X
+    othername: Device Type
+
+  - name: Device Type#All Device Types#VPN#5525X
+    description: Cisco 5525X
+    othername: Device Type
+
+  - name: Device Type#All Device Types#VPN#MX
+    description: Meraki MX
+    othername: Device Type
+
+  - name: Device Type#All Device Types#VPN#MX#MX68
+    description: Meraki MX68
+    othername: Device Type
+
+
+
+...

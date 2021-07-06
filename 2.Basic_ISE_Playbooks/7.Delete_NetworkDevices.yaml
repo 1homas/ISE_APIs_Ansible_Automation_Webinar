@@ -1,0 +1,58 @@
+---
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Be careful - this will delete all of your network devices!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+- name: Delete ALL Network Devices
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  vars_prompt:
+    - name: delete_confirmation
+      prompt: 🛑 You want to DELETE ALL Network Devices [yes/no]?
+      private: no
+      # confirm: yes
+  gather_facts: no
+  tasks:
+
+
+  - name: Get all NetworkDevices
+    cisco.ise.network_device_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: response
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=response
+
+
+  - name: Remove link attribute
+    ansible.builtin.set_fact:
+      no_links: '{{ no_links + [ item | dict2items | rejectattr("key", "equalto", "link") | list | items2dict ] }}'
+    loop: "{{ response.ise_response }}"
+    vars: 
+      no_links: []
+
+
+  - name: List Network Devices by Name (YAML)
+    ansible.builtin.shell: 'echo "{{ no_links | to_nice_yaml(indent=2) }}" > /dev/tty'
+    delegate_to: localhost
+    changed_when: false
+
+
+  - name: Delete all NetworkDevices
+    cisco.ise.network_device:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: absent
+      id: "{{ item.id }}"
+    loop: "{{ response.ise_response }}"
+    when: delete_confirmation.lower() in ['confirm','si','t','true','y','yes']
+
+
+...

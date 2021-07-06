@@ -1,0 +1,12 @@
+---
+- hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: yes
+  tasks:
+
+  - name: Print all available facts
+    ansible.builtin.debug:
+      var: ansible_facts
+
+...

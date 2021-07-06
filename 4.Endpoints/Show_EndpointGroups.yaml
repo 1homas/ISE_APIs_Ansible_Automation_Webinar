@@ -1,0 +1,42 @@
+---
+#
+# ISE Endpoint Groups
+#
+- name: Show Endpoint Groups Play
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+  - name: Get All Endpoint Groups
+    cisco.ise.endpoint_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: results
+
+
+  # - name: Debug results
+  #   ansible.builtin.debug:
+  #     var: results
+
+
+  #
+  # 💡 ToDo: format output as "{{ ID}}  | {{ name }} "
+  #
+
+
+  - name: Summary of Endpoint Groups by Name (YAML)
+    ansible.builtin.shell: "echo '{{ results.ise_response
+    | community.general.json_query(query) 
+    | to_nice_yaml(indent=2) }}' > /dev/tty"
+    delegate_to: localhost
+    changed_when: false
+    vars:
+      # query: "[*].id"
+      query: "[*].name"
+
+
+...

@@ -1,0 +1,21 @@
+
+---
+#
+# Demonstration of imported playbooks.
+#
+
+
+- name: Use imported playbooks
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+    # - include: list_of_tasks.yml
+
+# - include: complete_playbook.yml
+# - import_playbook: webservers.yml
+# - import_playbook: databases.yml
+
+
+...

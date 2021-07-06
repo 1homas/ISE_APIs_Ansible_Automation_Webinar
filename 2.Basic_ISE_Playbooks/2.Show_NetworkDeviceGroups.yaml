@@ -1,0 +1,66 @@
+---
+#
+# List all Network Device Group names and configurations in YAML lists.
+#
+- name: List All Network Device Groups by Name (YAML)
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+
+  - name: Get All Network Device Groups (id/name/description)
+    cisco.ise.network_device_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: device_groups
+
+
+  # - name: Debug output
+  #   ansible.builtin.debug:
+  #     var: device_groups
+
+
+  - name: List Network Device Groups by Name (YAML)
+    ansible.builtin.shell: 'echo "{{ device_groups.ise_response
+    | community.general.json_query(query) 
+    | to_nice_yaml(indent=2) }}" > /dev/tty'
+    delegate_to: localhost
+    changed_when: false
+    vars:
+      query: "[*].name"
+
+
+  - name: Get Network Device Groups by ID
+    cisco.ise.network_device_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      id: "{{ item.id }}"
+    loop: "{{ device_groups.ise_response }}"
+    register: group_details
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=group_details
+
+
+  - name: Remove link attribute
+    ansible.builtin.set_fact:
+      no_links: '{{ no_links + [ item.ise_response | dict2items | rejectattr("key", "equalto", "link") | list | items2dict ] }}'
+    loop: "{{ group_details.results }}"
+    vars: 
+      no_links: []
+
+
+  - name: Dump Network Device Groups (YAML)
+    ansible.builtin.shell: "echo '{{ no_links | to_nice_yaml(indent=2) }}' > /dev/tty"
+    delegate_to: localhost
+    changed_when: false
+
+
+...

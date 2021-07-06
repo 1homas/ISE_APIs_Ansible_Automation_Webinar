@@ -1,0 +1,20 @@
+---
+#
+# Lists all variables from Ansible environment 
+# and any declared vars or imported and vars_files.
+#
+- name: List All Ansible Vars
+  hosts: localhost
+  gather_facts: no
+  vars:
+    my_var: 42
+  # vars_files:
+  #   - credentials.yaml
+  tasks:
+
+  - name: Print vars' name and value
+    ansible.builtin.debug:
+      var: "{{ item }}"
+    loop: "{{ vars | list }}"
+
+...

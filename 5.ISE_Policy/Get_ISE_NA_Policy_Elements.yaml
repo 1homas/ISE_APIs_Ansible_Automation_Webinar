@@ -1,0 +1,366 @@
+---
+- hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+
+  - name: Get all network_access_policy_set_info
+    cisco.ise.network_access_policy_set_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result
+
+
+  - name: Remove link attribute from each resource in the list
+    ansible.builtin.set_fact:
+      resources: '{{ resources + [ item|dict2items|rejectattr("key", "equalto", "link")|list|items2dict ] }}'
+    loop: "{{ result.ise_response.response }}"
+    vars: 
+      resources: []
+
+
+  - name: Debug
+    ansible.builtin.debug: var=resources
+
+
+
+  #
+  # List of allowed protocols and server sequences for Policy Set
+  #
+  - name: Get all network_access_service_name_info
+    cisco.ise.network_access_service_name_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: 
+      var : result.ise_response
+
+
+  #
+  # Authorization Profiles
+  #
+  - name: Get all network_access_profiles_info
+    cisco.ise.network_access_profiles_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: result
+
+
+  - name: Debug
+    ansible.builtin.debug: var=result.ise_response
+
+
+
+  #----------------------------------------------------------------------------
+  # Network Access Dictionary
+  # 🐞 ? Returns null with 3.1.0.451 / ciscoisesdk 0.5.0 / cisco.ise 0.0.7
+  #----------------------------------------------------------------------------
+  #   TASK [Debug] 
+  #   ok: [ise.securitydemo.net] => {
+  #     "result": {
+  #         "changed": false,
+  #         "failed": false,
+  #         "ise_response": null,
+  #         "result": ""
+  #     }
+  # }
+  #----------------------------------------------------------------------------
+
+  # - name: Get all network_access_dictionary_info
+  #   cisco.ise.network_access_dictionary_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+
+  #----------------------------------------------------------------------------
+  # Network Access Dictionary
+  # 🐞 ? Returns null with 3.1.0.451 / ciscoisesdk 0.5.0 / cisco.ise 0.0.7
+  #----------------------------------------------------------------------------
+  # TASK [Debug] 
+  # ok: [ise.securitydemo.net] => {
+  #     "result": {
+  #         "changed": false,
+  #         "failed": false,
+  #         "ise_response": null,
+  #         "result": ""
+  #     }
+  # }
+  #----------------------------------------------------------------------------
+
+  # - name: Get all network_access_dictionary_attribute_info
+  #   cisco.ise.network_access_dictionary_attribute_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  #----------------------------------------------------------------------------
+  # Network Access Dictionary Attributes
+  # ⟁ This is a huge list!
+  #----------------------------------------------------------------------------
+
+  # - name: Get all network_access_dictionary_attributes_authentication_info
+  #   cisco.ise.network_access_dictionary_attributes_authentication_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result.ise_response.response
+
+
+
+  # - name: "Extract dictionaryName:name"
+  #   ansible.builtin.set_fact:
+  #     resources: "{{ resources + [ ['dictionaryName','name'] | map('extract', item) ] }}"
+  #   loop: "{{ result.ise_response.response }}"
+  #   vars: 
+  #     resources: []
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=resources
+
+  # - name: "Print dictionaryName:name"
+  #   ansible.builtin.shell: "echo '{{ resources | to_nice_yaml(indent=2) }}' > /dev/tty"
+  #   delegate_to: localhost
+  #   changed_when: false
+
+
+
+  #----------------------------------------------------------------------------
+  # Network Access Dictionary Attributes
+  # ⟁ This is a huge list! 
+  #----------------------------------------------------------------------------
+
+  # - name: Get all network_access_dictionary_attributes_authorization_info
+  #   cisco.ise.network_access_dictionary_attributes_authorization_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result.ise_response
+
+
+
+  # - name: Get all network_access_dictionary_attributes_policy_set_info
+  #   cisco.ise.network_access_dictionary_attributes_policy_set_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result.ise_response
+
+
+
+
+
+  # - name: Get all network_access_authentication_rules_info
+  #   cisco.ise.network_access_authentication_rules_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result.ise_response
+
+
+
+  # - name: Get all network_access_authorization_exception_rules_info
+  #   cisco.ise.network_access_authorization_exception_rules_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_authorization_global_exception_rules_info
+  #   cisco.ise.network_access_authorization_global_exception_rules_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_authorization_rules_info
+  #   cisco.ise.network_access_authorization_rules_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_conditions_for_authentication_rule_info
+  #   cisco.ise.network_access_conditions_for_authentication_rule_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_conditions_for_authorization_rule_info
+  #   cisco.ise.network_access_conditions_for_authorization_rule_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_conditions_for_policy_set_info
+  #   cisco.ise.network_access_conditions_for_policy_set_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_conditions_info
+  #   cisco.ise.network_access_conditions_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+
+  # - name: Get all network_access_identity_stores_info
+  #   cisco.ise.network_access_identity_stores_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_network_condition_info
+  #   cisco.ise.network_access_network_condition_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_security_groups_info
+  #   cisco.ise.network_access_security_groups_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+  # - name: Get all network_access_time_date_conditions_info
+  #   cisco.ise.network_access_time_date_conditions_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result.ise_response.response
+
+
+...

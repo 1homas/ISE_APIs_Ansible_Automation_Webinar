@@ -1,0 +1,169 @@
+---
+#
+# All modules from https://ciscoise.github.io/ansible-ise/main/html/plugins/
+#
+- name: List of all cisco.ise modules
+  hosts: localhost
+  vars:
+    modules:
+      - cisco.ise.aci_bindings_info
+      - cisco.ise.aci_settings_info
+      - cisco.ise.active_directory_groups_by_domain_info
+      - cisco.ise.active_directory_info
+      - cisco.ise.active_directory_is_user_member_of_group_info
+      - cisco.ise.active_directory_trusted_domains_info
+      - cisco.ise.active_directory_user_groups_info
+      - cisco.ise.admin_user_info
+      - cisco.ise.allowed_protocols_info
+      - cisco.ise.anc_endpoint_bulk_monitor_status_info
+      - cisco.ise.anc_endpoint_info
+      - cisco.ise.anc_policy_bulk_monitor_status_info
+      - cisco.ise.anc_policy_info
+      - cisco.ise.authorization_profile_info
+      - cisco.ise.backup_last_status_info
+      - cisco.ise.byod_portal_info
+      - cisco.ise.certificate_profile_info
+      - cisco.ise.certificate_template_info
+      - cisco.ise.csr_export_info
+      - cisco.ise.csr_info
+      - cisco.ise.deployment_info
+      - cisco.ise.device_administration_authentication_rules_info
+      - cisco.ise.device_administration_authorization_exception_rules_info
+      - cisco.ise.device_administration_authorization_global_exception_rules_info
+      - cisco.ise.device_administration_authorization_rules_info
+      - cisco.ise.device_administration_command_set_info
+      - cisco.ise.device_administration_conditions_for_authentication_rule_info
+      - cisco.ise.device_administration_conditions_for_authorization_rule_info
+      - cisco.ise.device_administration_conditions_for_policy_set_info
+      - cisco.ise.device_administration_conditions_info
+      - cisco.ise.device_administration_dictionary_attributes_authentication_info
+      - cisco.ise.device_administration_dictionary_attributes_authorization_info
+      - cisco.ise.device_administration_dictionary_attributes_policy_set_info
+      - cisco.ise.device_administration_identity_stores_info
+      - cisco.ise.device_administration_network_conditions_info
+      - cisco.ise.device_administration_policy_set_info
+      - cisco.ise.device_administration_profiles_info
+      - cisco.ise.device_administration_service_names_info
+      - cisco.ise.device_administration_time_date_conditions_info
+      - cisco.ise.downloadable_acl_info
+      - cisco.ise.egress_matrix_cell_bulk_monitor_status_info
+      - cisco.ise.egress_matrix_cell_info
+      - cisco.ise.endpoint_bulk_monitor_status_info
+      - cisco.ise.endpoint_get_rejected_endpoints_info
+      - cisco.ise.endpoint_group_info
+      - cisco.ise.endpoint_info
+      - cisco.ise.external_radius_server_info
+      - cisco.ise.filter_policy_info
+      - cisco.ise.guest_location_info
+      - cisco.ise.guest_smtp_notification_settings_info
+      - cisco.ise.guest_ssid_info
+      - cisco.ise.guest_type_info
+      - cisco.ise.guest_user_bulk_monitor_status_info
+      - cisco.ise.guest_user_info
+      - cisco.ise.hotspot_portal_info
+      - cisco.ise.id_store_sequence_info
+      - cisco.ise.identity_group_info
+      - cisco.ise.internal_user_info
+      - cisco.ise.my_device_portal_info
+      - cisco.ise.native_supplicant_profile_info
+      - cisco.ise.network_access_authentication_rules_info
+      - cisco.ise.network_access_authorization_exception_rules_info
+      - cisco.ise.network_access_authorization_global_exception_rules_info
+      - cisco.ise.network_access_authorization_rules_info
+      - cisco.ise.network_access_conditions_for_authentication_rule_info
+      - cisco.ise.network_access_conditions_for_authorization_rule_info
+      - cisco.ise.network_access_conditions_for_policy_set_info
+      - cisco.ise.network_access_conditions_info
+      - cisco.ise.network_access_dictionary_attribute_info
+      - cisco.ise.network_access_dictionary_attributes_authentication_info
+      - cisco.ise.network_access_dictionary_attributes_authorization_info
+      - cisco.ise.network_access_dictionary_attributes_policy_set_info
+      - cisco.ise.network_access_dictionary_info
+      - cisco.ise.network_access_identity_stores_info
+      - cisco.ise.network_access_network_condition_info
+      - cisco.ise.network_access_policy_set_info
+      - cisco.ise.network_access_profiles_info
+      - cisco.ise.network_access_security_groups_info
+      - cisco.ise.network_access_service_name_info
+      - cisco.ise.network_access_time_date_conditions_info
+      - cisco.ise.network_device_bulk_monitor_status_info
+      - cisco.ise.network_device_group_info
+      - cisco.ise.network_device_info
+      - cisco.ise.node_deployment_info
+      - cisco.ise.node_group_info
+      - cisco.ise.node_info
+      - cisco.ise.node_replication_status_info
+      - cisco.ise.pan_ha_info
+      - cisco.ise.portal_global_setting_info
+      - cisco.ise.portal_info
+      - cisco.ise.portal_theme_info
+      - cisco.ise.profiler_profile_info
+      - cisco.ise.px_grid_node_info
+      - cisco.ise.radius_server_sequence_info
+      - cisco.ise.repository_files_info
+      - cisco.ise.repository_info
+      - cisco.ise.rest_id_store_info
+      - cisco.ise.self_registered_portal_info
+      - cisco.ise.service_info
+      - cisco.ise.session_service_node_info
+      - cisco.ise.sg_acl_bulk_monitor_status_info
+      - cisco.ise.sg_acl_info
+      - cisco.ise.sg_mapping_deploy_status_info
+      - cisco.ise.sg_mapping_group_bulk_monitor_status_info
+      - cisco.ise.sg_mapping_group_deploy_status_info
+      - cisco.ise.sg_mapping_group_info
+      - cisco.ise.sg_mapping_info
+      - cisco.ise.sg_to_vn_to_vlan_bulk_monitor_status_info
+      - cisco.ise.sg_to_vn_to_vlan_info
+      - cisco.ise.sgt_bulk_monitor_status_info
+      - cisco.ise.sgt_info
+      - cisco.ise.sms_provider_info
+      - cisco.ise.sponsor_group_info
+      - cisco.ise.sponsor_group_member_info
+      - cisco.ise.sponsor_portal_info
+      - cisco.ise.sponsored_guest_portal_info
+      - cisco.ise.support_bundle_status_info
+      - cisco.ise.sxp_connections_bulk_monitor_status_info
+      - cisco.ise.sxp_connections_info
+      - cisco.ise.sxp_local_bindings_bulk_monitor_status_info
+      - cisco.ise.sxp_local_bindings_info
+      - cisco.ise.sxp_vpns_bulk_monitor_status_info
+      - cisco.ise.sxp_vpns_info
+      - cisco.ise.system_certificate_info
+      - cisco.ise.system_config_version_info
+      - cisco.ise.tacacs_command_sets_info
+      - cisco.ise.tacacs_external_servers_info
+      - cisco.ise.tacacs_profile_info
+      - cisco.ise.tacacs_server_sequence_info
+      - cisco.ise.telemetry_info_info
+      - cisco.ise.trusted_certificate_export_info
+      - cisco.ise.trusted_certificate_info
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+
+  - name: Debug result
+    ansible.builtin.debug:
+      var: modules
+
+  # - name: Debug result
+  #   ansible.builtin.debug:
+  #     msg: "{{ item }}"
+  #   loop: "{{ modules }}"
+
+
+  #
+  # 🛑 Cannot use a variable for the module name
+  #
+  # - name: Get all
+  #   "{{ item }} ":
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+...

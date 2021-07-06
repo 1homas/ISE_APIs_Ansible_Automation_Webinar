@@ -1,0 +1,64 @@
+---
+#
+# Demonstrates:
+# - import a separate network device definitions file with vars_file
+# - loop through and create network devices
+# - use defaults if not customized with individual devices' settings
+#
+- name: Create Network Devices from vars_file
+  hosts: ise_deployment
+  vars:
+    - profile_name: Cisco 
+  vars_files:
+    - credentials.yaml
+    - field_networkdevices.yaml
+
+  gather_facts: no
+  tasks:
+
+  - name: "Network Device: {{ item.device_name }}"
+    cisco.ise.network_device:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: "{{ item.device_name }}"
+      description: "{{ item.device_name }}"
+      profileName: "{{ item.profile_name | default(profile_name) }}"
+      NetworkDeviceIPList:
+      - ipaddress: "{{ item.ipv4 }}"
+        mask: 32
+      NetworkDeviceGroupList: "{{ item.network_device_groups }}"
+      authenticationSettings:
+        networkProtocol: RADIUS
+        radiusSharedSecret: "{{ item.radius_secret | default(radius_secret) }}"
+        enableKeyWrap: False
+        dtlsRequired: False
+        enableMultiSecret: string
+      tacacsSettings:
+        sharedSecret: "{{ item.tacacs_secret | default(tacacs_secret) }}"
+        connectModeOptions: "OFF"
+        previousSharedSecret:
+        previousSharedSecretExpiry: 0
+      snmpsettings:
+        version: TWO_C
+        roCommunity: "{{ item.snmp_secret | default(tacacs_secret) }}"
+        authPassowrd: string
+        privacyPassowrd: string
+        pollingInterval: 28800
+        linkTrapQuery: true
+        macTrapQuery: true
+        originatingPolicyServicesNode: Auto
+      dtlsDnsName: "{{ item.device_name }}"
+      coaPort: 0
+    loop: "{{ networkdevices }}"
+    register: results
+
+
+  # - name: "Debug: results"
+  #   ansible.builtin.debug:
+  #     var: results
+
+
+...

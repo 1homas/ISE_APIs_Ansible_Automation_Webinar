@@ -1,0 +1,28 @@
+---
+#
+# Network Device Groups by Device Type
+#
+networkdevicegroups:
+
+  - name: Device Type#All Device Types
+    description: All Device Types - Root
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Wireless
+    description: Wireless
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Switches
+    description: Switches
+    othername: Device Type
+
+  - name: Device Type#All Device Types#Routers
+    description: Routers
+    othername: Device Type
+
+  - name: Device Type#All Device Types#VPN
+    description: VPN
+    othername: Device Type
+
+
+...

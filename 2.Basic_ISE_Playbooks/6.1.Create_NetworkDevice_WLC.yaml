@@ -1,0 +1,78 @@
+---
+- name: Network Device Play
+  hosts: ise_deployment
+  vars:
+    device_name: WLC
+    ipv4: 198.19.11.10
+    profile_name: Cisco
+    network_device_groups: 
+      - Location#All Locations
+      - IPSEC#Is IPSEC Device#No
+      - Device Type#All Device Types#Wireless
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+  - name: "Network Device: {{ device_name }}"
+    cisco.ise.network_device:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: "{{ device_name }}"
+      description: "{{ device_name }}"
+      profileName: "{{ profile_name | default(Cisco) }}"
+      NetworkDeviceIPList:
+      - ipaddress: "{{ ipv4 }}"
+        mask: 32
+      NetworkDeviceGroupList: "{{ network_device_groups }}"
+      authenticationSettings:
+        networkProtocol: RADIUS
+        radiusSharedSecret: "{{ radius_secret }}"
+        enableKeyWrap: False
+        dtlsRequired: False
+        enableMultiSecret: string
+      tacacsSettings:
+        sharedSecret: "{{ tacacs_secret }}"
+        connectModeOptions: "OFF"
+        previousSharedSecret:
+        previousSharedSecretExpiry: 0
+      snmpsettings:
+        version: TWO_C
+        roCommunity: "{{snmp_secret}}"
+        authPassowrd: string
+        privacyPassowrd: string
+        pollingInterval: 28800
+        linkTrapQuery: true
+        macTrapQuery: true
+        originatingPolicyServicesNode: Auto
+      dtlsDnsName: "{{ device_name }}"
+      coaPort: 0
+
+
+  - name: "Get Network Device by Name: {{ device_name }}"
+    cisco.ise.network_device_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      name: "{{ device_name }}"
+    register: output
+
+
+  # - name: Debug output
+  #   ansible.builtin.debug:
+  #     var: output
+
+  #
+  # 💡 ToDo: Remove link attribute
+  #
+  - name: "Dump Network Device: {{ device_name }}"
+    ansible.builtin.shell: 
+      "echo '{{ output.ise_response | to_nice_yaml(indent=2) }}' > /dev/tty"
+    delegate_to: localhost
+    changed_when: false
+
+...

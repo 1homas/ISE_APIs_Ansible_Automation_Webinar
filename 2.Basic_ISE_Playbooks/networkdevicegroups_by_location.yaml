@@ -1,0 +1,220 @@
+---
+#
+# Network Device Groups by Location
+#
+networkdevicegroups:
+
+  - name: Location#All Locations
+    description: All Locations - Root
+    othername: Location
+    othername: Location
+
+  - name: Location#All Locations#AMER
+    description: AMER
+    othername: Location
+
+  - name: Location#All Locations#AMER#AST
+    description: Austin, TX, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#ATL
+    description: Atlanta, GA, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#CHI
+    description: Chicago, IL, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#HBC
+    description: Huntington Beach, CA, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#HRN
+    description: Herndon, VA, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#IRV
+    description: Irvine, CA, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#MXC
+    description: Mexico City, MX
+    othername: Location
+
+  - name: Location#All Locations#AMER#NYC
+    description: New York, NY, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#RCD
+    description: Richardson, TX, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#RTP
+    description: Raleigh, NC, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#SJC
+    description: San Jose, CA, US
+    othername: Location
+
+  - name: Location#All Locations#AMER#SJC#SJC01
+    description: San Jose, Buiding 01
+    othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC02
+  #   description: San Jose, Buiding 02
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC03
+  #   description: San Jose, Buiding 03
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC04
+  #   description: San Jose, Buiding 04
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC05
+  #   description: San Jose, Buiding 05
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC06
+  #   description: San Jose, Buiding 06
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC07
+  #   description: San Jose, Buiding 07
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC08
+  #   description: San Jose, Buiding 08
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC09
+  #   description: San Jose, Buiding 09
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC10
+  #   description: San Jose, Buiding 10
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC11
+  #   description: San Jose, Buiding 11
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC12
+  #   description: San Jose, Buiding 12
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC13
+  #   description: San Jose, Buiding 13
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC14
+  #   description: San Jose, Buiding 14
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC15
+  #   description: San Jose, Buiding 15
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC16
+  #   description: San Jose, Buiding 16
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC17
+  #   description: San Jose, Buiding 17
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC18
+  #   description: San Jose, Buiding 18
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC19
+  #   description: San Jose, Buiding 19
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC20
+  #   description: San Jose, Buiding 20
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC21
+  #   description: San Jose, Buiding 21
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC22
+  #   description: San Jose, Buiding 22
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC23
+  #   description: San Jose, Buiding 23
+  #   othername: Location
+
+  # - name: Location#All Locations#AMER#SJC#SJC24
+  #   description: San Jose, Buiding 24
+  #   othername: Location
+
+  - name: Location#All Locations#APJC
+    description: APJC
+    othername: Location
+
+  - name: Location#All Locations#APJC#BGL
+    description: Bengaluru
+    othername: Location
+
+  - name: Location#All Locations#APJC#SEO
+    description: Seoul
+    othername: Location
+
+  - name: Location#All Locations#APJC#SIN
+    description: Singapore
+    othername: Location
+
+  - name: Location#All Locations#APJC#SYD
+    description: Sydney
+    othername: Location
+
+  - name: Location#All Locations#APJC#TYO
+    description: Tokyo
+    othername: Location
+
+  - name: Location#All Locations#EMEAR
+    description: EMEAR
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#AMS
+    description: Amsterdam
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#BER
+    description: Berlin
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#DUB
+    description: Dubai
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#JBG
+    description: Johannesburg
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#LON
+    description: London
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#MLN
+    description: Milan
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#MSW
+    description: Moscow
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#PRG
+    description: Prague
+    othername: Location
+
+  - name: Location#All Locations#EMEAR#PRS
+    description: Paris
+    othername: Location
+
+...

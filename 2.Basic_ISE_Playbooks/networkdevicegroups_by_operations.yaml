@@ -1,0 +1,52 @@
+---
+#
+# Network Device Groups by Operations
+#
+networkdevicegroups:
+
+  - name: Operation#Operation
+    description: All Operations
+    othername: Operation
+
+  - name: Operation#Operation#Zone1
+    description: Zone 1
+    othername: Operation
+
+  - name: Operation#Operation#Zone2
+    description: Zone 2
+    othername: Operation
+
+  - name: Operation#Operation#Zone3
+    description: Zone 3
+    othername: Operation
+
+  - name: Operation#Operation#Zone4
+    description: Zone 4
+    othername: Operation
+
+  - name: Operation#Operation#Zone5
+    description: Zone 5
+    othername: Operation
+
+  - name: Operation#Operation#Zone6
+    description: Zone 6
+    othername: Operation
+
+  - name: Operation#Operation#Zone7
+    description: Zone 7
+    othername: Operation
+
+  - name: Operation#Operation#Zone8
+    description: Zone 8
+    othername: Operation
+
+  - name: Operation#Operation#Zone9
+    description: Zone 9
+    othername: Operation
+
+  - name: Operation#Operation#Zone10
+    description: Zone 10
+    othername: Operation
+
+
+...

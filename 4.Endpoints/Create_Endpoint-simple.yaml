@@ -1,0 +1,47 @@
+---
+#
+# Endpoint
+#
+- name: Create Endpoint(s) Play
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+  - name: Create Endpoint
+    cisco.ise.endpoint:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+
+      mac: 11:22:33:44:55:66
+      name: Thomas-iPad
+      description: iPad
+      staticGroupAssignment: true
+      groupId: aa13bb40-8bff-11e6-996c-525400b48521
+
+      # ▼▼▼ optional attributes ▼▼▼
+
+      # staticGroupAssignment: true
+      # ⟁ you must lookup and confirm the groupId for your EndpointGroup!
+      # groupId: aa13bb40-8bff-11e6-996c-525400b48521
+
+      # staticProfileAssignment: true
+      # ⟁ you must lookup and confirm the profileId!
+      # profileId: 0a9c6890-8c00-11e6-996c-525400b48521
+
+      # customAttributes:
+      #   customAttributes:
+      #     Created: "{{ now()) }}"
+      #     Expired: 
+
+    register: results
+
+
+  - ansible.builtin.debug: var=results
+
+
+...

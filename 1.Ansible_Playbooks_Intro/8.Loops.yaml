@@ -1,0 +1,37 @@
+---
+#
+# Demonstrates the use of a loop.
+#
+- name: Looping Play
+  hosts: localhost
+  gather_facts: no
+  vars:
+
+  tasks:
+
+  - name: Echo Numbers Task
+    ansible.builtin.command: echo "{{ item }}"
+    changed_when: false
+    loop: 
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+
+
+  - name: Echo Letters Task
+    ansible.builtin.command: echo "{{ item }}"
+    changed_when: false
+    loop: [a,b,c,d,e]
+
+  - name: Echo Dictionary Attributes Task
+    ansible.builtin.command: echo 
+    changed_when: false
+    loop: "{{ coordinates }}"
+    vars:
+      coordinates: 
+       - { x: 3, y: 9, z: -4 }
+
+
+...

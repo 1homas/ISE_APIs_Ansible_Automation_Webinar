@@ -1,0 +1,57 @@
+---
+#
+# ISE Internal User
+#
+- name: Create Internal User(s) Play
+  hosts: ise_deployment
+  vars:
+    - password: "C1sco12345"
+    - users:
+      - changePassword: false
+        enabled: true
+        expiryDateEnabled: false
+        name: probe
+        password: "{{ password }}"
+        passwordIDStore: Internal Users
+
+      - changePassword: false
+        enabled: true
+        expiryDateEnabled: false
+        name: thomas
+        password: "{{ password }}"
+        passwordIDStore: Internal Users
+        identityGroups: a1740510-8c01-11e6-996c-525400b48521
+
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+  - name: Create users
+    loop: "{{ users }}"
+    cisco.ise.internal_user:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: '{{ item.name }}'
+      description: '{{ item.description | default() }}'
+      enabled: '{{ item.enabled | default(true) }}'
+      password: '{{ item.password }}'
+      # ▼▼▼ optional attributes ▼▼▼
+      # changePassword: '{{ item.changePassword | default(false) }}'
+      # passwordIDStore: '{{ item.idStore | default(Internal Users) }}'
+      # identityGroups: a1740510-8c01-11e6-996c-525400b48521
+      # customAttributes:
+      #   Created: 
+      #   Expired: 
+    register: results
+
+
+  # - name: Debug results
+  #   ansible.builtin.debug:
+  #     var: results
+
+
+...

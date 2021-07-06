@@ -1,0 +1,44 @@
+---
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Be careful - this will delete all of your network device groups!
+#
+# Note: An ISE REST API bug currently returns a 500 for this:
+#   "title" : "Failed to delete Network Device Group. ",
+#   "type" : "ERROR",
+#   "code" : "CRUD operation exception"
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+- name: Delete ALL Network Device Groups
+  hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  vars_prompt:
+    - name: delete_confirmation
+      prompt: 🛑 You want to DELETE ALL Network Device Groups?!
+      private: no
+      # confirm: yes
+  gather_facts: no
+  tasks:
+
+
+  - name: Get all NetworkDeviceGroups
+    cisco.ise.network_device_group_info:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+    register: response
+
+
+  - name: Delete all NetworkDeviceGroups
+    cisco.ise.network_device_group:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: absent
+      id: "{{ item.id }}"
+    loop: "{{ response.ise_response }}"
+    when: delete_confirmation.lower() in ['confirm','si','t','true','y','yes']
+
+...

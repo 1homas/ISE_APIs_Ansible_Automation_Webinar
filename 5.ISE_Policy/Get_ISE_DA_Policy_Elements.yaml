@@ -1,0 +1,252 @@
+---
+#
+# ISE DeviceAdmin Policy Elements
+#
+- hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: 
+  #     var : result
+
+
+  # - name: Get all device_administration_authentication_rules_info
+  #   cisco.ise.device_administration_authentication_rules_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_authorization_exception_rules_info
+  #   cisco.ise.device_administration_authorization_exception_rules_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_authorization_global_exception_rules_info
+  #   cisco.ise.device_administration_authorization_global_exception_rules_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_authorization_rules_info
+  #   cisco.ise.device_administration_authorization_rules_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_command_set_info
+  #   cisco.ise.device_administration_command_set_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_conditions_for_authentication_rule_info
+  #   cisco.ise.device_administration_conditions_for_authentication_rule_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_conditions_for_authorization_rule_info
+  #   cisco.ise.device_administration_conditions_for_authorization_rule_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_conditions_for_policy_set_info
+  #   cisco.ise.device_administration_conditions_for_policy_set_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_conditions_info
+  #   cisco.ise.device_administration_conditions_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_dictionary_attributes_authentication_info
+  #   cisco.ise.device_administration_dictionary_attributes_authentication_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_dictionary_attributes_authorization_info
+  #   cisco.ise.device_administration_dictionary_attributes_authorization_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_dictionary_attributes_policy_set_info
+  #   cisco.ise.device_administration_dictionary_attributes_policy_set_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_identity_stores_info
+  #   cisco.ise.device_administration_identity_stores_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_network_conditions_info
+  #   cisco.ise.device_administration_network_conditions_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_policy_set_info
+  #   cisco.ise.device_administration_policy_set_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_profiles_info
+  #   cisco.ise.device_administration_profiles_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_service_names_info
+  #   cisco.ise.device_administration_service_names_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+  # - name: Get all device_administration_time_date_conditions_info
+  #   cisco.ise.device_administration_time_date_conditions_info:
+  #     ise_hostname: "{{ inventory_hostname }}"
+  #     ise_username: "{{ ise_username }}"
+  #     ise_password: "{{ ise_password }}"
+  #     ise_verify: "{{ ise_verify }}"
+  #   register: result
+
+
+  # - name: Debug
+  #   ansible.builtin.debug: var=result
+
+
+...
+

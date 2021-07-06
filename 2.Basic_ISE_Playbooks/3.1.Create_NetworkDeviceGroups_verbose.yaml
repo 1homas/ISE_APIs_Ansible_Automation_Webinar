@@ -1,0 +1,71 @@
+---
+#
+# Create Network Device Groups (verbose).
+#
+- hosts: ise_deployment
+  vars_files:
+    - credentials.yaml
+  gather_facts: no
+  tasks:
+
+  - name: Create Department#Department
+    cisco.ise.network_device_group:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: Department#Department
+      description: All Departments
+      othername: Department
+
+
+  - name: Create Department#Department#IT
+    cisco.ise.network_device_group:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: Department#Department#IT
+      description: IT
+      othername: Department
+
+
+  - name: Create Department#Department#Product
+    cisco.ise.network_device_group:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: Department#Department#Product
+      description: Product
+      othername: Department
+
+
+  - name: Create Department#Department#Services
+    cisco.ise.network_device_group:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: Department#Department#Services
+      description: Services
+      othername: Department
+
+
+  - name: Create Department#Department#Sales
+    cisco.ise.network_device_group:
+      ise_hostname: "{{ inventory_hostname }}"
+      ise_username: "{{ ise_username }}"
+      ise_password: "{{ ise_password }}"
+      ise_verify: "{{ ise_verify }}"
+      state: present
+      name: Department#Department#Sales
+      description: Sales
+      othername: Department
+
+
+...
