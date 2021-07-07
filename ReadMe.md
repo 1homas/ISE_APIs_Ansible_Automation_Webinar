@@ -80,7 +80,26 @@ source source_me.sh
 ```
 
 
-## Cisco DevNet Sandbox
+## Run a Playbook
+
+The steps below assume you will be cloning this repository into the DevNet Sandbox and running it there. If you use them in your own lab then you will need to create a different `hosts` file and update the `credentials.yaml` file for your environment.
+
+```bash
+ansible-playbook 1.Ansible_Playbooks_Intro/1.0.Hello_World.yaml
+
+ansible-playbook -i hosts.DevNet.ini 1.Ansible_Playbooks_Intro/7.ISE_Version.yaml
+
+ansible-playbook -i hosts.DevNet.ini 2.Basic_ISE_Playbooks/2.Show_NetworkDeviceGroups.yaml 
+```
+
+
+## Resources
+
+- [`ciscoisesdk` Python Package](https://pypi.org/project/ciscoisesdk/) | [API Docs](https://ciscoisesdk.readthedocs.io/en/latest/api/api.html) | [Repository](https://github.com/CiscoISE/ciscoisesdk)
+- [`cisco.ise` Ansible Modules](https://galaxy.ansible.com/cisco/ise) | [Documentation](https://ciscoise.github.io/ansible-ise/main/html/plugins/index.html) | [Repository](https://github.com/CiscoISE/ansible-ise)
+
+
+## [Cisco DevNet Sandbox](https://devnetsandbox.cisco.com/RM/Diagram/Index/ad4bb2ae-bb67-4d93-9f0d-2a6a04792e2e?diagramType=Topology)
 
 If want a lab environment to try API, Python scripting, or Ansible with ISE, you may use the Cisco DevNet Sandbox [ISE with Ansible Automation](https://devnetsandbox.cisco.com/RM/Diagram/Index/ad4bb2ae-bb67-4d93-9f0d-2a6a04792e2e?diagramType=Topology) for free! It is the same sandbox used for the Learning Lab below so you can try this repository or your own projects!
 
