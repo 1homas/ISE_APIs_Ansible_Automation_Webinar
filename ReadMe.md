@@ -9,7 +9,7 @@ These examples were created for the Cisco Identity Services Engine (ISE) Webinar
 
 Clone this repository to your local lab or sandbox environment :  
 ```bash
-git clone https://github.com/1homas/APIs_Ansible_Automation_ISE_Webinar.git
+git clone https://github.com/1homas/ISE_APIs_Ansible_Automation_Webinar
 ```
 
 Install Python 3.9 (tested with 3.9.5) :  
