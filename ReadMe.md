@@ -40,28 +40,16 @@ pipenv install ansible
 pipenv install jmespath
 ```
 
-Install the `cisco.ise` Ansible collection:  
+Install the latest version of the `cisco.ise` Ansible collection with the `--force` option:
 
 ```bash
-ansible-galaxy collection install cisco.ise
+ansible-galaxy collection install cisco.ise --force
 ```
 
 Install the `community.general` Ansible collection to take advantage of `json_query` and other filters :  
 
 ```bash
 ansible-galaxy collection install community.general
-```
-
-To install a specific version of the `cisco.ise` collection, use `:` followed by range identifiers (`*` (latest/default), `!=`, `==`, `>=`, `>`, `<=`, `<`)
-
-```bash
-ansible-galaxy collection install cisco.ise:==0.0.7
-```
-
-To check for upgrades to the `cisco.ise` Ansible collection, use :  
-
-```bash
-ansible-galaxy collection install cisco.ise --upgrade
 ```
 
 View the list of installed Ansible modules and versions :  
@@ -118,6 +106,5 @@ An overview of using REST APIs, OpenAPIs, Postman, and Ansible for Automation wi
 
 ## License
 
-The examples in this repository are licensed under the [Cisco Sample Code License](https://developer.cisco.com/site/license/cisco-sample-code-license/).
-
+This repository is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
 
